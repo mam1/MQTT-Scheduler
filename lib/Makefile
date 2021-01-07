@@ -2,8 +2,12 @@
 # File:  Makefile (for library)
 #
 
-program_C_SRCS := $(wildcard *.c)
-program_C_SRCS := $(wildcard *.c)
+project_DIRECTORY := ~/Git/MQTT-Scheduler
+program_INCLUDE_DIRS := $(project_DIRECTORY)/include
+program_LIBRARY_DIRS := $(project_DIRECTORY)/lib
+
+program_C_SRCS := $(wildcard /lib_sources/*.c)
+program_C_SRCS := $(wildcard /lib_sources/*.c)
 program_CXX_SRCS := $(wildcard *.cpp)
 program_C_OBJS := ${program_C_SRCS:.c=.o}
 program_CXX_OBJS := ${program_CXX_SRCS:.cpp=.o}
@@ -15,14 +19,9 @@ UNAME_P := $(shell uname -p)
 
 # set directories
 # ifeq ($(UNAME_S),Darwin)
-program_INCLUDE_DIRS := include
-program_LIBRARY_DIRS := lib
-program_LIBRARIES := Pcon.a
-# else
-# 	program_INCLUDE_DIRS := include
-# 	program_LIBRARY_DIRS := lib
-# 	program_LIBRARIES := Pcon.a
-# endif
+program_INCLUDE_DIRS := $(program_INCLUDE_DIRS)
+program_LIBRARY_DIRS := $(program_LIBRARY_DIRS)
+program_LIBRARIES := MQTT.a
 
 # set parameters
 CPPFLAGS += $(foreach includedir,$(program_INCLUDE_DIRS),-I$(includedir))
@@ -33,28 +32,18 @@ CXXFLAGS += $(CFLAGS)
 LDFLAGS += $(CFLAGS) -fno-exceptions -fno-rtti 
 
 # set locations for basic gnu tools
-ifeq ($(UNAME_S),Darwin)
-	PREFIX := /Volumes/cross-compile/bin/arm-linux-gnueabihf-
-	CC  := $(PREFIX)gcc
-	CXX := $(PREFIX)g++
-	LD  := $(PREFIX)ld
-	AS  := $(PREFIX)as
-	AR  := $(PREFIX)ar
-	OBJCOPY := $(PREFIX)objcopy
-else
-	PREFIX := /gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-	CC  := $(PREFIX)gcc
-	CXX := $(PREFIX)g++
-	LD  := $(PREFIX)ld
-	AS  := $(PREFIX)as
-	AR  := $(PREFIX)ar
-	OBJCOPY := $(PREFIX)objcopy
-endif
+PREFIX := /media/sf_sysuts/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+CC  := $(PREFIX)gcc
+CXX := $(PREFIX)g++
+LD  := $(PREFIX)ld
+AS  := $(PREFIX)as
+AR  := $(PREFIX)ar
+OBJCOPY := $(PREFIX)objcopy
 
 # set libarary
-LIB=libPcon.a
+LIB=libMQTT.a
 LIBDEST= lib
-LIBSRC := $(wildcard lib-sources/*.c)
+LIBSRC := $(wildcard /lib_sources/*.c)
 LIBOBJ=$(LIBSRC:.c=.o)
 
 install: $(LIB)
