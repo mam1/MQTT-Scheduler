@@ -1,5 +1,5 @@
 #
-# File:  Makefile (for library)
+# File:  Makefile (for MQTT library)
 #
 
 project_DIRECTORY := ~/Git/MQTT-Scheduler
@@ -40,7 +40,7 @@ AR  := $(PREFIX)ar
 OBJCOPY := $(PREFIX)objcopy
 
 # set libarary
-LIB=libMQTT.a
+LIB=MQTT
 LIBDEST= lib
 LIBSRC := $(wildcard ~/Git/MQTT-Scheduler/lib_sources/*.c)
 LIBOBJ=$(LIBSRC:.c=.o)

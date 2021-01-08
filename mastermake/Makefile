@@ -19,8 +19,15 @@ program_OBJS :=  $(program_C_OBJS) $(program_CXX_OBJS)
 
 # set parameters
 CPPFLAGS += $(foreach includedir,$(program_INCLUDE_DIRS),-I$(includedir))
-LDFLAGS += $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
-LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
+
+
+# LDFLAGS += $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
+# LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
+
+
+LDFLAGS += -L~/Git/MQTT-Scheduler/lib
+LDFLAGS += -lMQTT
+
 CFLAGS  += -Wall
 CXXFLAGS += $(CFLAGS)
 LDFLAGS += $(CFLAGS) -fno-exceptions      
@@ -46,7 +53,8 @@ $(program_NAME): $(program_OBJS)
 	@echo ${CC}
 	@echo "\n>>>>> building $(program_NAME) sending output to $(target_MACHINE)"
 
-	$(CC) $(program_OBJS) -o $(system_BINARIES)/$(program_NAME) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+# 	$(CC) $(program_OBJS) -o $(system_BINARIES)/$(program_NAME) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+	$(CC) $(program_OBJS) -o $(system_BINARIES)/$(program_NAME) $(CFLAGS) $(CPPFLAGS) /home/mam1/Git/MQTT-Scheduler/lib/libMQTT.a
 
 	@echo ">>>>> build of  $(program_NAME) completed"
 
