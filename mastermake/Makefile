@@ -7,8 +7,8 @@
 system_BINARIES := $(project_DIRECTORY)/bin
 working_DIRECTORY := $(project_DIRECTORY)/$(PROJECT)
 program_INCLUDE_DIRS := $(project_DIRECTORY)/include
-program_LIBRARY_DIRS := $(project_DIRECTORY)/lib
-program_LIBRARIES := libMQTT
+#program_LIBRARY_DIRS := $(project_DIRECTORY)/lib
+#program_LIBRARIES := libMQTT
 
 # scan working directory
 program_C_SRCS := $(wildcard *.c)
@@ -26,7 +26,7 @@ CXXFLAGS += $(CFLAGS)
 LDFLAGS += $(CFLAGS) -fno-exceptions      
 
 # set locations for basic gnu tools
-PREFIX := /media/sf_sysuts/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+PREFIX := /media/sysuts/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 CC  := $(PREFIX)gcc
 CXX := $(PREFIX)g++
 LD  := $(PREFIX)ld
