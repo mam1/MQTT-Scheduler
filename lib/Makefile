@@ -6,8 +6,7 @@ project_DIRECTORY := ~/Git/MQTT-Scheduler
 program_INCLUDE_DIRS := $(project_DIRECTORY)/include
 program_LIBRARY_DIRS := $(project_DIRECTORY)/lib
 
-program_C_SRCS := $(wildcard /lib_sources/*.c)
-program_C_SRCS := $(wildcard /lib_sources/*.c)
+program_C_SRCS := $(wildcard ~/Git/MQTT-Scheduler/lib_sources/*.c)
 program_CXX_SRCS := $(wildcard *.cpp)
 program_C_OBJS := ${program_C_SRCS:.c=.o}
 program_CXX_OBJS := ${program_CXX_SRCS:.cpp=.o}
@@ -43,7 +42,7 @@ OBJCOPY := $(PREFIX)objcopy
 # set libarary
 LIB=libMQTT.a
 LIBDEST= lib
-LIBSRC := $(wildcard /lib_sources/*.c)
+LIBSRC := $(wildcard ~/Git/MQTT-Scheduler/lib_sources/*.c)
 LIBOBJ=$(LIBSRC:.c=.o)
 
 install: $(LIB)
@@ -64,5 +63,15 @@ $(LIB): $(LIBOBJ)
 clean:
 	@echo lib Makefile - cleaning up
 	@- $(RM) -v $(LIBOBJ)
+
+test:
+
+	@echo $(HOLD)
+	cd /home/mam1/Git/MQTT-Scheduler/lib_sources
+	@echo $(ls -l)
+	@echo sources = $(wildcard *.c)
+	@echo program_C_SRCS $(program_C_SRCS)
+	@echo LIBSRC $(LIBSRC)
+
 
 
