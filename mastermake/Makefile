@@ -58,8 +58,8 @@ clean:
 
 # rebuild the project ibrary from lib-sources 
 lib: 
-	cd  $(project_LIB) && $(MAKE) clean
-	cd  $(project_LIB) && $(MAKE)
+	cd  ~/Git/MQTT-Scheduler/lib && $(MAKE) clean
+	cd  ~/Git/MQTT-Scheduler/lib && $(MAKE)
 
 dump:
 	@echo CC ............... $(CC)
