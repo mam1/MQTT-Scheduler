@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 tt() {
-	xxxxxxxx;
 	
-   printf("Hellow world!!!!!:\n");
+	
+   printf("Hellow world form the library !!!!!:\n");
    return;
 
 }
