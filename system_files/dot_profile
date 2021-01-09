@@ -29,6 +29,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 PATH="/usr/bin/myscripts:/usr/bin/mybins:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+cd /home/mam1/Git/MQTT-Scheduler
 
 
 
