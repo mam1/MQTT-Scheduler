@@ -12,13 +12,13 @@ int main() {
 	char			input[] = "this is a test";
 
    printf("\ntesting stack functions\n");
-   printf("<%s>\n", input);
-
-   printf( "Enter a value :");
-   gets( token );
-
-   printf( "\nYou entered: ");
-   puts( token );
+   
+   while (*token!='q'){
+   	printf( "Enter a value :");
+   	gets( token );
+   	printf( "\nYou entered: ");
+   	puts( token );
+   }
 
 
    printf("\nnormal termination\n");
