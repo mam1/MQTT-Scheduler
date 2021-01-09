@@ -4,13 +4,13 @@
 
 
 typedef struct {
-	head
-	tail
+	char		*head;
+	char		*tail;
 } _list;
 
 typedef struct {
-	head
-	tail
+	char		*head;
+	char		*tail;
 } _stack;
 
 

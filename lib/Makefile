@@ -31,7 +31,7 @@ CXXFLAGS += $(CFLAGS)
 LDFLAGS += $(CFLAGS) -fno-exceptions -fno-rtti 
 
 # set locations for basic gnu tools
-PREFIX := /media/sf_sysuts/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+PREFIX := /media/sysuts/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 CC  := $(PREFIX)gcc
 CXX := $(PREFIX)g++
 LD  := $(PREFIX)ld
@@ -40,7 +40,7 @@ AR  := $(PREFIX)ar
 OBJCOPY := $(PREFIX)objcopy
 
 # set libarary
-LIB=MQTT
+LIB=libMQTT.a
 LIBDEST= lib
 LIBSRC := $(wildcard ~/Git/MQTT-Scheduler/lib_sources/*.c)
 LIBOBJ=$(LIBSRC:.c=.o)
