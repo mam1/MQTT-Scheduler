@@ -13,5 +13,11 @@ typedef struct {
 	char		*tail;
 } _stack;
 
+typedef struct {
+	char		*previous;
+	char		*next
+	char 		*payload;
+} _node;
+
 
 #endif
