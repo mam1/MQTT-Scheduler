@@ -4,18 +4,24 @@
 #include </home/mam1/Git/MQTT-Scheduler/include/typedefs.h>
 #include </home/mam1/Git/MQTT-Scheduler/include/stack.h>
 
-#define MAX_TOKEN_SIZE 10
+#define MAX_TOKEN_SIZE 100
 
 
 int main() {
 	char			token[MAX_TOKEN_SIZE];
 	char			input[] = "this is a test";
 
-   printf("testing stack functions\n");
+   printf("\ntesting stack functions\n");
    printf("<%s>\n", input);
 
+   printf( "Enter a value :");
+   gets( token );
 
-   printf("normal termination\n");
+   printf( "\nYou entered: ");
+   puts( token );
+
+
+   printf("\nnormal termination\n");
    return 0;
 
 }
