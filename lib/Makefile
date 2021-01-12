@@ -4,7 +4,7 @@
 
 project_DIRECTORY := ~/Git/MQTT-Scheduler
 program_INCLUDE_DIRS := $(project_DIRECTORY)/include
-program_LIBRARY_DIRS := $(project_DIRECTORY)/lib
+support_LIBRARY_DIRS := $(project_DIRECTORY)/lib
 
 program_C_SRCS := $(wildcard ~/Git/MQTT-Scheduler/lib_sources/*.c)
 program_CXX_SRCS := $(wildcard *.cpp)
@@ -12,20 +12,16 @@ program_C_OBJS := ${program_C_SRCS:.c=.o}
 program_CXX_OBJS := ${program_CXX_SRCS:.cpp=.o}
 program_OBJS := $(program_C_OBJS) $(program_CXX_OBJS)
 
-# get the development machine OS
-UNAME_S := $(shell uname -s)
-UNAME_P := $(shell uname -p)
-
 # set directories
 # ifeq ($(UNAME_S),Darwin)
 program_INCLUDE_DIRS := $(program_INCLUDE_DIRS)
-program_LIBRARY_DIRS := $(program_LIBRARY_DIRS)
-program_LIBRARIES := MQTT.a
+support_LIBRARY_DIRS := $(support_LIBRARY_DIRS)
+support_LIBRARIES := MQTT.a
 
 # set parameters
 CPPFLAGS += $(foreach includedir,$(program_INCLUDE_DIRS),-I$(includedir))
-LDFLAGS += $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
-LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
+LDFLAGS += $(foreach librarydir,$(support_LIBRARY_DIRS),-L$(librarydir))
+LDFLAGS += $(foreach library,$(support_LIBRARIES),-l$(library))
 CFLAGS  += -Wall
 CXXFLAGS += $(CFLAGS)
 LDFLAGS += $(CFLAGS) -fno-exceptions -fno-rtti 

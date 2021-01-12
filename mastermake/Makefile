@@ -3,12 +3,6 @@
 #	target - BeagleBone (Debian)														#
 ############################################################################# 
 
-# set directories
-system_BINARIES := $(project_DIRECTORY)/bin
-working_DIRECTORY := $(project_DIRECTORY)/$(PROJECT)
-program_INCLUDE_DIRS := $(project_DIRECTORY)/include
-
-
 # scan working directory
 program_C_SRCS := $(wildcard *.c)
 program_CXX_SRCS :=  $(wildcard *.cpp)
@@ -44,7 +38,7 @@ $(program_NAME): $(program_OBJS)
 	@echo "\n>>>>> building $(program_NAME) sending output to $(target_MACHINE)"
 
 # 	$(CC) $(program_OBJS) -o $(system_BINARIES)/$(program_NAME) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
-	$(CC) $(program_OBJS) -o $(system_BINARIES)/$(program_NAME) $(CFLAGS) $(CPPFLAGS) $(program_LIB)
+	$(CC) $(program_OBJS) -o $(system_BINARIES)/$(program_NAME) $(CFLAGS) $(CPPFLAGS) $(support_LIB)
 	@echo ">>>>> build of  $(program_NAME) completed"
 
 # clean up
@@ -62,6 +56,17 @@ lib:
 	cd  ~/Git/MQTT-Scheduler/lib && $(MAKE)
 
 dump:
+
+
+	@echo project_DIRECTORY := $(project_DIRECTORY)
+	@echo include_DIRECTORY := $(include_DIRECTORY)
+	@echo support_LIB := $(support_LIB)
+
+	@echo working_DIRECTORY := $(working_DIRECTORY)
+	@echo program_NAME := $(program_NAME)
+
+	@echo program_C_SRCS := $(program_C_SRCS)
+
 	@echo CC ............... $(CC)
 	@echo cc ............... $(cc)
 	@echo LINK ............. $(LINK)

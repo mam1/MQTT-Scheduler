@@ -18,6 +18,8 @@ int main() {
    	gets( token );
    	printf( "\nYou entered: ");
    	puts( token );
+
+   	
    }
 
 
