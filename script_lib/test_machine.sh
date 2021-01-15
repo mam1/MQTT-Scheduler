@@ -2,8 +2,8 @@
 
 # systemS manufacture
 
-R=$(inxi -S)
-echo "system info" $R
+R=$(hostname)
+echo "system info ..... " $R
 
 # do not run this scrip from a virtual machine
 
@@ -15,5 +15,5 @@ fi
 
 
 echo "**********************************************************************************"
-echo $RETURNED
+echo $
 echo "**********************************************************************************"
