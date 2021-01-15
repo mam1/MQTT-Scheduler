@@ -5,7 +5,7 @@
 R=$(hostname)
 echo "hostname" $R
 
-if [[ $(hostname) =~ "MQTT-beaglebone" ]]
+if [[ $(hostname) =~ "MQTT-beaglebone" ]];
 then
    echo "It's a bone!"
 fi
