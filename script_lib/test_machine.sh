@@ -1,18 +1,18 @@
 #!/bin/sh
 
 # systemS manufacture
-R=$(dmidecode -s system-manufacturer)
-echo "System manufacturer is" $R
+
+R=$(inxi -S)
+echo "system info" $R
 
 # do not run this scrip from a virtual machine
-if test "$R" = "innotek GmbH"
+
+if [[ $R =~ "MQTT-beaglebone" ]]
 then
-	echo "exiting script"
-	exit 1
+   echo "It's a bone!"
 fi
 
 
-test "innotek GmbH" != "$R" && RETURNED="real" || RETURNED="vitrual"
 
 echo "**********************************************************************************"
 echo $RETURNED
