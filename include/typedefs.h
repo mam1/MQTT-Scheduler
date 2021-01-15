@@ -3,21 +3,44 @@
 
 
 
+typedef {int;} _offset;
+
+
 typedef struct {
-	char		*head;
-	char		*tail;
+	int			 	base;
+	_offset		 	head;
+	_offset		 	tail;
 } _list;
 
 typedef struct {
-	char		*head;
-	char		*tail;
+	int				base;
+	_offset		 	head;
+	_offset		 	tail;
 } _stack;
 
 typedef struct {
-	char		*previous;
-	char		*next
-	char 		*payload;
+	_offset		 	previous;
+	_offset		 	next;
+	-offset 	 	payload;
+	int				payload_type
+	int				payload_size;
 } _node;
+
+/* schedule record */
+typedef struct {
+	int			key;
+	int 		state;
+	float 		temp;
+	float 		humid;
+
+} _schedule_rec;				
+
+/* schedule  */
+typedef struct {
+	char 			name[_TEMPLATE_NAME_SIZE];
+	int 			rcnt;
+	_schedule		rec[_MAX_SCHEDULE_RECS +1];
+
 
 
 
