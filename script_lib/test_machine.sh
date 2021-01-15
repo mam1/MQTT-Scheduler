@@ -1,14 +1,15 @@
 #!/bin/sh
 
-# systemS manufacture
 
-R=$(hostname)
-echo "hostname" $R
+SYSTEM = "MQTT-beaglebone"
+HOSTNAME = $(hostname)
 
-if [[ $(hostname) =~ "MQTT-beaglebone" ]];
-then
-   echo "It's a bone!"
+echo "hostname" $HOSTNAME
+
+if [[ "$HOSTNAME" =~ .*$SYSTEM.* ]]; then
+  echo "It's there."
 fi
+
 
 echo "**********************************************************************************"
 echo " "
