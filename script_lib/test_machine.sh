@@ -6,7 +6,7 @@ HOSTNAME = $(hostname)
 
 echo "hostname" $HOSTNAME
 
-if [[ "$HOSTNAME" =~ .*$SYSTEM.* ]]; then
+if [[ "$HOSTNAME" =~ '$SYSTEM ]]; then
   echo "It's there."
 fi
 
