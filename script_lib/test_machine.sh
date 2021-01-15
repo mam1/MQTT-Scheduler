@@ -3,9 +3,9 @@
 # systemS manufacture
 
 R=$(hostname)
-echo "system info ..... " $R
+echo "hostname" $R
 
-# do not run this scrip from a virtual machine
+
 
 if [[ $R =~ "MQTT-beaglebone" ]]
 then
@@ -15,5 +15,5 @@ fi
 
 
 echo "**********************************************************************************"
-echo $
+echo ""
 echo "**********************************************************************************"
