@@ -5,14 +5,10 @@
 R=$(hostname)
 echo "hostname" $R
 
-
-
-# if [[ $R =~ "MQTT-beaglebone" ]]
-# then
-#    echo "It's a bone!"
-# fi
-
-
+if [[ $(hostname) =~ "MQTT-beaglebone" ]]
+then
+   echo "It's a bone!"
+fi
 
 echo "**********************************************************************************"
 echo " "
